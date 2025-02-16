@@ -189,7 +189,7 @@ function App() {
             <br />
             Email: <span id="username1">{user.email}</span>
           </h2>
-          <p id="users">Number of active users: <span>{activeUsers}</span></p>
+          // <p id="users">Number of active users: <span>{activeUsers}</span></p>
           <div id="chat" className="chat-container">
             {chats.map((c, i) => (
               <div key={i} className={`container ${c.user.email === user.email ? "me" : ""}`}>
