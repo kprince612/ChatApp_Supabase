@@ -11,7 +11,7 @@ Features
 
 - Automatic timestamp conversion to IST
 
-folder structure
+ Folder Structure
 
 chat-app/
 │── src/
