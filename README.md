@@ -10,17 +10,3 @@ Features
 - Notification sound on new messages
 
 - Automatic timestamp conversion to IST
-
- Folder Structure
-
-chat-app/
-│── src/
-│   ├── assets/       # Static files (icons, sounds)
-│   ├── components/   # React components
-│   ├── styles/       # CSS files
-│   ├── App.js        # Main application logic
-│   ├── index.js      # Supabase initialization
-│
-│── public/           # Static public files
-│── package.json      # Dependencies and scripts
-│── README.md         # Project documentation
