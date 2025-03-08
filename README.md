@@ -1,4 +1,4 @@
-# ChatApp1
+# ChatApp_supabase
 This is a real-time chat application where multiple users can communicate using Google Authentication via Supabase. The chat updates dynamically using Supabase Realtime Database.
 
 Features
