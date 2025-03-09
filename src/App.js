@@ -194,7 +194,8 @@ function App() {
             {chats.map((c, i) => (
               <div key={i} className={`container ${c.user.email === user.email ? "me" : ""}`}>
                 <p className="chatbox">
-                  <strong>{user.user_metadata?.full_name}:</strong> <span>{c.message}</span>
+                  <strong>{c.user.email === user.email ? "You" : c.user.name}:</strong>
+                  <span>{c.message}</span>
                   <br />
                   <small style={{ color: "#f9ff00" }}>
                     {c.timestamp ? new Date(c.timestamp).toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }) : "No timestamp"}
