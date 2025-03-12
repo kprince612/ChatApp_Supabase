@@ -80,7 +80,7 @@ function App() {
       ]);
 
       console.log("User logged in successfully:", loggedInUser);
-    }, 3000);
+    });
   };
 
   const convertToIST = (date) => {
