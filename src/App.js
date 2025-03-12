@@ -2,6 +2,20 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import { supabase } from "./index";
 import sound from "./assets/ding-101492.mp3";
+import leoProfanity from "leo-profanity";
+
+const badWords = [
+  "bhosdike", "bhosdi", "bhosdike", "bkl", "bc", "mc", "lund", "gand", "chutiya",
+  "chut", "gaand", "maderchod", "maderchod", "madarchod", "betichod", "bhenchod",
+  "bhosdike", "randi", "gandu", "chodu", "chinal", "lavde", "bhadwa", "bhadwe",
+  "raand", "gaandfat", "lund", "jhant", "jhat", "gandmasti", "gandfat", "teri maa ki",
+  "teri behen ki", "teri maa ka", "teri behan ka", "bhosdike", "chinal", "chodu", "raand",
+  "chut ke dhakkan", "chutmarika", "tatte", "lawda", "suar ke lund", "kutta kamina", "marderchod"
+];
+
+leoProfanity.loadDictionary ();
+
+leoProfanity.add (badWords);
 
 function App() {
   const [user, setUser] = useState(null);
@@ -11,6 +25,18 @@ function App() {
 
   const audioplay = () => {
     new Audio(sound).play();
+  };
+
+  const Updateheight = () => {
+    const el = document.getElementById ("chat");
+
+    if (!el) {
+      return;
+    }
+
+    else {
+      el.scrollTop = el.scrollHeight;
+    }
   };
 
   const googleLogin = async () => {
@@ -158,13 +184,17 @@ function App() {
       return;
     }
 
+    const cleanMessage = leoProfanity.clean (msg);
+
     await supabase.from("chats").insert([
       { 
         user: JSON.stringify({ name: user.user_metadata.full_name, email: user.email }),
-        message: msg, 
+        message: cleanMessage, 
         timestamp: convertToIST(new Date()) 
       },
     ]);
+
+    Updateheight ();
 
     setMsg("");
   };
